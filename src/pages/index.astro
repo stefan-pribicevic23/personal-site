@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import linkedinLogo from "../assets/links/linkedin.png";
+import githubLogo from "../assets/links/github.png";
+import npmLogo from "../assets/links/npm.png";
+import ProfileImage from "../components/ProfileImage.astro";
+---
+
+<Layout title="Stefan Pribićević">
+  <main>
+    <h1><span class="text-gradient">Stefan Pribićević</span></h1>
+    <ProfileImage />
+    <p class="instructions">
+      Hello, and thank you for visiting my personal website. I'm <code
+        >Stefan Pribićević</code
+      >, a passionate and creative web developer with a relentless pursuit of
+      excellence in crafting digital experiences. I believe in the power of the
+      web to connect, inform, and inspire, and I'm dedicated to making that
+      potential a reality through my work.
+    </p>
+    <ul role="list" class="links-container">
+      <li>
+        <a
+          href="https://www.linkedin.com/in/stefan-pribi%C4%87evi%C4%87/"
+          target="_blank"
+        >
+          <Image src={linkedinLogo} alt="linkedin" width="100" height="100" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.npmjs.com/~spribicevic" target="_blank">
+          <Image src={npmLogo} alt="npm" height="100" />
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/stefan-pribicevic23" target="_blank">
+          <Image src={githubLogo} alt="github" width="100" height="100" />
+        </a>
+      </li>
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 3rem;
+    @media screen and (max-width: 1200px) {
+      font-size: 4rem;
+    }
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin: 0;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .links-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+  }
+  li {
+    list-style: none;
+  }
+</style>
